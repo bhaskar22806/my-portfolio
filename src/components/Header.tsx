@@ -16,8 +16,18 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80; // Approximate header height
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      console.warn(`Section with id "${sectionId}" not found`);
+    }
   };
 
   const navItems = [
@@ -83,14 +93,20 @@ const Header = () => {
                 {navItems.map((item) => (
                   <button
                     key={item.section}
-                    onClick={() => scrollToSection(item.section)}
+                    onClick={() => {
+                      scrollToSection(item.section);
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="text-left text-foreground-muted hover:text-primary font-medium transition-colors duration-300 py-2"
                   >
                     {item.label}
                   </button>
                 ))}
                 <Button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => {
+                    scrollToSection('contact');
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="btn-hero mt-4"
                 >
                   Let's Connect

@@ -83,7 +83,10 @@ const Projects = () => {
                   variant="ghost"
                   size="sm"
                   className="btn-ghost flex items-center gap-2"
-                  onClick={() => window.open(project.githubUrl, '_blank')}
+                  onClick={() => {
+                    // For demo purposes, show message. In real app, would link to live demo
+                    alert(`Live demo for ${project.title} coming soon! Check the GitHub repository for more details.`);
+                  }}
                 >
                   <ExternalLink size={16} />
                   Live Demo

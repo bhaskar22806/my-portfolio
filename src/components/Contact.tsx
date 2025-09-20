@@ -15,12 +15,39 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send the form data
+    
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Please fill all fields",
+        description: "All fields are required to send a message.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Success feedback
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
+      title: "Message Sent Successfully! 🎉",
+      description: "Thank you for reaching out! I'll get back to you within 24 hours.",
     });
+    
+    // Reset form
     setFormData({ name: "", email: "", message: "" });
+    
+    // In a real implementation, this would send the form data to a backend
+    console.log("Form submitted:", formData);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

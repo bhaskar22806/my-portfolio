@@ -4,12 +4,27 @@ import heroImage from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80; // Approximate header height
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const handleResumeDownload = () => {
-    // In a real implementation, this would download the actual PDF
-    console.log("Resume download triggered");
+    // Create a temporary link to trigger download
+    const link = document.createElement('a');
+    link.href = '#'; // Replace with actual resume PDF URL
+    link.download = 'Bhaskar_T_Resume.pdf';
+    link.click();
+    
+    // For now, show a message since we don't have the actual PDF
+    alert("Resume download will be available soon! Please contact me directly for my latest resume.");
   };
 
   return (
