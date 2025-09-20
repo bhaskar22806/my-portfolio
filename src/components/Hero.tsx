@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import ResumeViewer from "./ResumeViewer";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -14,17 +15,6 @@ const Hero = () => {
         behavior: 'smooth'
       });
     }
-  };
-
-  const handleResumeDownload = () => {
-    // Create a temporary link to trigger download
-    const link = document.createElement('a');
-    link.href = '#'; // Replace with actual resume PDF URL
-    link.download = 'Bhaskar_T_Resume.pdf';
-    link.click();
-    
-    // For now, show a message since we don't have the actual PDF
-    alert("Resume download will be available soon! Please contact me directly for my latest resume.");
   };
 
   return (
@@ -54,18 +44,15 @@ const Hero = () => {
             Computer Science Undergraduate | Aspiring Software Developer
           </p>
           <p className="text-lg text-foreground-muted mb-12 max-w-2xl mx-auto">
-            Passionate about building innovative solutions and crafting seamless user experiences with modern technologies.
+            A passionate and self-driven Computer Science undergraduate aiming to transform ideas into impactful solutions with strong fundamentals in Core Java and a commitment to continuous learning.
           </p>
         </div>
 
-        <div className="animate-fade-in-delay flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <Button 
-            onClick={handleResumeDownload}
-            className="btn-hero flex items-center gap-3 text-lg"
-          >
-            <Download size={20} />
-            View Resume
-          </Button>
+        <div className="animate-fade-in-delay mb-16">
+          <ResumeViewer />
+        </div>
+
+        <div className="animate-fade-in-delay flex justify-center mb-16">
           <Button 
             onClick={() => scrollToSection('contact')}
             variant="outline"

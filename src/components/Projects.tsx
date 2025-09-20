@@ -5,27 +5,27 @@ const Projects = () => {
   const projects = [
     {
       title: "Vehicle Registration Management System",
-      description: "Streamlined vehicle data registration system with efficient data management and user-friendly interface for seamless vehicle registration processes.",
-      githubUrl: "https://github.com/bhaskar2004",
-      technologies: ["Java", "Database", "UI/UX"]
+      description: "Developed Java application with CRUD operations using JDBC for MySQL database connectivity, featuring GUI interfaces for vehicle data management.",
+      githubUrl: "https://github.com/bhaskar2004/vehicle-registration-management-system",
+      technologies: ["Java", "MySQL", "JDBC", "GUI"]
     },
     {
-      title: "Smart Navigation for the Blind",
-      description: "Assistive navigation application with audio cues and object detection to help visually impaired users navigate safely and independently.",
-      githubUrl: "https://github.com/bhaskar2004",
-      technologies: ["AI/ML", "Audio Processing", "Computer Vision"]
+      title: "Smart Navigation System for the Visually Impaired",
+      description: "Engineered assistive technology solution using real-time object detection and audio feedback for obstacle detection with voice-based navigation instructions and proximity alerts.",
+      githubUrl: "https://github.com/bhaskar2004/Smart-Navigation-Systems",
+      technologies: ["Python", "Audio Processing", "Object Detection", "AI/ML"]
     },
     {
-      title: "Weather Bot",
-      description: "Real-time weather forecast application using APIs to provide accurate weather information with interactive user interface and location-based services.",
-      githubUrl: "https://github.com/bhaskar2004",
-      technologies: ["API Integration", "JavaScript", "Real-time Data"]
+      title: "Weather Forecast Bot",
+      description: "Built real-time weather information system integrating OpenWeatherMap API with JSON parsing for location-based forecasting, supporting multiple cities and formatted data display.",
+      githubUrl: "https://github.com/bhaskar2004/weather-bot",
+      technologies: ["BotPress", "APIs", "OpenWeatherMap", "JSON"]
     },
     {
-      title: "Better Trips",
-      description: "Trip-planning application showing 20 nearby tourist places with detailed information, reviews, and route optimization for better travel experiences.",
-      githubUrl: "https://github.com/bhaskar2004",
-      technologies: ["Maps API", "React", "Location Services"]
+      title: "Better Trips - Tourism Web Application",
+      description: "Developed responsive web application integrating Geoapify API to display 20 nearby tourist attractions with filtering, sorting, and integrated Google Maps for routing based on user location.",
+      githubUrl: "https://github.com/bhaskar2004/better-trips",
+      technologies: ["HTML", "CSS", "JavaScript", "Geoapify API", "Google Maps"]
     }
   ];
 
@@ -37,7 +37,7 @@ const Projects = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
-            A showcase of my recent work and personal projects that demonstrate my skills and passion for development.
+            A showcase of my software development projects that demonstrate practical problem-solving and technical implementation.
           </p>
         </div>
 
@@ -84,12 +84,12 @@ const Projects = () => {
                   size="sm"
                   className="btn-ghost flex items-center gap-2"
                   onClick={() => {
-                    // For demo purposes, show message. In real app, would link to live demo
-                    alert(`Live demo for ${project.title} coming soon! Check the GitHub repository for more details.`);
+                    // Open GitHub repository for project details
+                    window.open(project.githubUrl, '_blank');
                   }}
                 >
                   <ExternalLink size={16} />
-                  Live Demo
+                  View Details
                 </Button>
               </div>
             </div>
